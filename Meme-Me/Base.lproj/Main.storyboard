@@ -31,9 +31,17 @@
                                             <constraint firstAttribute="height" constant="44" id="cME-o3-JPJ"/>
                                         </constraints>
                                         <items>
-                                            <barButtonItem systemItem="action" id="RK0-m3-74b"/>
+                                            <barButtonItem systemItem="action" id="RK0-m3-74b">
+                                                <connections>
+                                                    <action selector="shareCurrentPhoto:" destination="BYZ-38-t0r" id="81i-IZ-t4m"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem systemItem="flexibleSpace" id="Ag7-ki-LPn"/>
-                                            <barButtonItem title="Cancel" id="yhp-7h-mKF"/>
+                                            <barButtonItem title="Cancel" id="yhp-7h-mKF">
+                                                <connections>
+                                                    <action selector="cancelCurrentMeme:" destination="BYZ-38-t0r" id="tZt-Z4-Xwh"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                     </toolbar>
                                 </subviews>
@@ -100,7 +108,12 @@
                     </view>
                     <connections>
                         <outlet property="bottomText" destination="FAP-qE-7B2" id="yM1-4A-2We"/>
+                        <outlet property="cameraButton" destination="DYq-w9-2Qq" id="YBI-pb-8SR"/>
+                        <outlet property="cancelButton" destination="yhp-7h-mKF" id="uEG-0j-9Wz"/>
+                        <outlet property="navBar" destination="fkz-7n-L2e" id="uw9-jd-Jq3"/>
                         <outlet property="pickImage" destination="Lj3-81-UUr" id="5Vb-Eh-apW"/>
+                        <outlet property="shareButton" destination="RK0-m3-74b" id="efd-SB-rAy"/>
+                        <outlet property="toolBar" destination="zPV-Vl-4rT" id="d13-27-q3J"/>
                         <outlet property="topText" destination="ka3-qA-az4" id="FiL-eT-ob8"/>
                     </connections>
                 </viewController>

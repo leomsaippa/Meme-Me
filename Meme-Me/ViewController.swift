@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController,
 UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -15,9 +16,18 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var pickImage: UIImageView!
+    @IBOutlet weak internal var navBar: UIToolbar!
+    @IBOutlet weak internal var toolBar: UIToolbar!
+    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        shareButton.isEnabled = false
         configureTextField(topText, text: "TOP")
         configureTextField(bottomText, text: "BOTTOM")
         
@@ -27,6 +37,8 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
     
     override func viewWillAppear(_ animated: Bool) {
         subscribeToKeyboardNotifications()
+        
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
     }
     
@@ -84,6 +96,7 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
 
         let imageUrl = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         pickImage.image = imageUrl
+        shareButton.isEnabled = true
         dismiss(animated: true, completion: nil)
         
     }
@@ -135,5 +148,71 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
         return true;
     }
 
+    @IBAction func cancelCurrentMeme(_ sender: Any) {
+        // Removing current image and return to Sent Memes
+        pickImage.image = nil
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func shareCurrentPhoto(_ sender: Any) {
+        //Generate memedImage
+       let sharedImage = generateMemedImage()
+        
+        let activityView = UIActivityViewController(activityItems: [sharedImage], applicationActivities: nil)
+            present(activityView, animated: true)
+        
+        activityView.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                self.save(memedImage: sharedImage)
+                self.showAlert("Meme-Me", "Meme successfully shared")
+                return
+            } else {
+                self.showAlert("Meme-Me", "Canceled")
+            }
+            if let shareError = error {
+                self.showAlert("Meme-Me", "Error sharing meme: \(shareError.localizedDescription)")
+            }
+        }
+    }
+    
+    func generateMemedImage() -> UIImage {
+
+        // Hide toolbar and navbar
+        self.toolBar.isHidden = true
+        self.navBar.isHidden = true
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        // Show toolbar and navbar
+        self.toolBar.isHidden = false
+        self.navBar.isHidden = false
+
+        return memedImage
+    }
+        
+    func save(memedImage: UIImage) {
+        
+        // Create the meme
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: pickImage.image!, memedImage: memedImage)
+        
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+    }
+    
+    //Set up Alerts
+    func showAlert(_ alertTitle: String, _ alertMessage: String) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler:  nil ))
+        
+        self.present(alert,animated: true,completion: nil)
+    
+        }
+    
 }
 
