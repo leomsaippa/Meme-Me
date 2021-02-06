@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,111 +11,92 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YlB-vv-apl"/>
-                        <viewControllerLayoutGuide type="bottom" id="e8z-Nl-uiz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cQU-Nv-8Mj">
+                    <view key="view" contentMode="scaleToFill" id="QnI-LA-Eef">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lj3-81-UUr" userLabel="Image Picker View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="599"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-1x-ipk" userLabel="Pick Image">
+                                <rect key="frame" x="0.0" y="44" width="414" height="808"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pbX-i9-TMG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPV-Vl-4rT" userLabel="Top Tool Bar">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="cME-o3-JPJ"/>
-                                        </constraints>
-                                        <items>
-                                            <barButtonItem systemItem="action" id="RK0-m3-74b">
-                                                <connections>
-                                                    <action selector="shareCurrentPhoto:" destination="BYZ-38-t0r" id="81i-IZ-t4m"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem systemItem="flexibleSpace" id="Ag7-ki-LPn"/>
-                                            <barButtonItem title="Cancel" id="yhp-7h-mKF">
-                                                <connections>
-                                                    <action selector="cancelCurrentMeme:" destination="BYZ-38-t0r" id="tZt-Z4-Xwh"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zPV-Vl-4rT" secondAttribute="trailing" id="2pC-qW-OpD"/>
-                                    <constraint firstItem="zPV-Vl-4rT" firstAttribute="leading" secondItem="pbX-i9-TMG" secondAttribute="leading" id="fQ8-2f-YVV"/>
-                                </constraints>
-                            </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ka3-qA-az4" userLabel="Top Text">
-                                <rect key="frame" x="0.0" y="64" width="414" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="UIW-VS-sZr"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="36"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xci-a1-bFk" userLabel="Top Text">
+                                <rect key="frame" x="0.0" y="109" width="414" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkz-7n-L2e" userLabel="Bottom Tool Bar">
-                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Twv-kv-JuA"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kWH-Jg-L2A" userLabel="Bottom Text">
+                                <rect key="frame" x="0.0" y="788" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZG-NU-2N2" userLabel="Top Toolbar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="flexibleSpace" id="th6-9C-IL9"/>
-                                    <barButtonItem systemItem="camera" id="DYq-w9-2Qq">
+                                    <barButtonItem systemItem="action" id="Rya-Da-yVT" userLabel="shareButton">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="lk3-4B-dbc"/>
+                                            <action selector="shareCurrentPhoto:" destination="BYZ-38-t0r" id="XiD-zG-gXA"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="laV-rW-g4n"/>
-                                    <barButtonItem title="Album" id="o6G-gY-YtQ">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fmW-CG-Bo9"/>
+                                    <barButtonItem systemItem="cancel" id="xTY-YL-j3p" userLabel="cancelButton">
                                         <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="d7X-Ml-a4B"/>
+                                            <action selector="cancelCurrentMeme:" destination="BYZ-38-t0r" id="rvJ-IN-HOA"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="hbg-jF-oLF"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-qE-7B2" userLabel="Bottom Text">
-                                <rect key="frame" x="0.0" y="534.33333333333348" width="414" height="52.666666666666629"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-49-kmd" userLabel="Bottom Toolbar">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bzT-60-HIu"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2wZ-zm-zGA"/>
+                                    <barButtonItem style="plain" systemItem="camera" id="Em8-aa-bzh" userLabel="cameraButton">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="Dnu-rO-23e"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Album" style="plain" id="yW8-Ug-mve" userLabel="albumButton">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="LIT-1M-F3G"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wlU-8E-a2S"/>
+                                </items>
+                            </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="M9Y-8C-FIy"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FAP-qE-7B2" firstAttribute="trailing" secondItem="fkz-7n-L2e" secondAttribute="trailing" id="2Zf-n5-36n"/>
-                            <constraint firstItem="ka3-qA-az4" firstAttribute="top" secondItem="zPV-Vl-4rT" secondAttribute="bottom" constant="20" id="Bsw-Xr-JkL"/>
-                            <constraint firstAttribute="trailing" secondItem="ka3-qA-az4" secondAttribute="trailing" id="CY8-Li-BHu"/>
-                            <constraint firstItem="Lj3-81-UUr" firstAttribute="leading" secondItem="cQU-Nv-8Mj" secondAttribute="leading" id="LdJ-oj-8rV"/>
-                            <constraint firstItem="FAP-qE-7B2" firstAttribute="leading" secondItem="ka3-qA-az4" secondAttribute="leading" id="NoG-Yl-ZMn"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fkz-7n-L2e" secondAttribute="bottom" id="Oci-uS-xbi"/>
-                            <constraint firstItem="fkz-7n-L2e" firstAttribute="leading" secondItem="cQU-Nv-8Mj" secondAttribute="leading" id="Syr-HH-W8k"/>
-                            <constraint firstItem="pbX-i9-TMG" firstAttribute="leading" secondItem="fkz-7n-L2e" secondAttribute="leading" id="Y8I-QI-yRy"/>
-                            <constraint firstItem="fkz-7n-L2e" firstAttribute="top" secondItem="Lj3-81-UUr" secondAttribute="bottom" id="aH1-uW-aoC"/>
-                            <constraint firstItem="pbX-i9-TMG" firstAttribute="trailing" secondItem="fkz-7n-L2e" secondAttribute="trailing" id="aaV-WY-2qN"/>
-                            <constraint firstAttribute="trailing" secondItem="Lj3-81-UUr" secondAttribute="trailing" id="tAR-bt-BPR"/>
-                            <constraint firstItem="fkz-7n-L2e" firstAttribute="trailing" secondItem="cQU-Nv-8Mj" secondAttribute="trailing" id="tak-O9-1R7"/>
-                            <constraint firstItem="FAP-qE-7B2" firstAttribute="leading" secondItem="fkz-7n-L2e" secondAttribute="leading" id="wsr-ve-5jp"/>
+                            <constraint firstItem="FZG-NU-2N2" firstAttribute="top" secondItem="M9Y-8C-FIy" secondAttribute="top" id="1U0-cg-z7j"/>
+                            <constraint firstItem="d8X-1x-ipk" firstAttribute="centerY" secondItem="QnI-LA-Eef" secondAttribute="centerY" id="8pk-2W-Hx5"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="leading" secondItem="d8X-1x-ipk" secondAttribute="leading" id="AvX-eR-igG"/>
+                            <constraint firstItem="d8X-1x-ipk" firstAttribute="top" secondItem="M9Y-8C-FIy" secondAttribute="top" id="C1Z-Er-i33" userLabel="Image Picker View.top = Safe Area.top"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="centerX" secondItem="kWH-Jg-L2A" secondAttribute="centerX" id="CZY-tt-YYj"/>
+                            <constraint firstItem="M9Y-8C-FIy" firstAttribute="trailing" secondItem="xci-a1-bFk" secondAttribute="trailing" id="Drj-Le-t9g"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="trailing" secondItem="d8X-1x-ipk" secondAttribute="trailing" id="GSX-3J-FO4"/>
+                            <constraint firstItem="d8X-1x-ipk" firstAttribute="centerX" secondItem="QnI-LA-Eef" secondAttribute="centerX" id="Ie3-OT-HIl"/>
+                            <constraint firstItem="FZG-NU-2N2" firstAttribute="trailing" secondItem="d8X-1x-ipk" secondAttribute="trailing" id="Mb5-2s-HiJ"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="centerX" secondItem="xci-a1-bFk" secondAttribute="centerX" id="RKM-zC-SWp"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="bottom" secondItem="M9Y-8C-FIy" secondAttribute="bottom" id="TjK-d3-JaE"/>
+                            <constraint firstItem="d8X-1x-ipk" firstAttribute="leading" secondItem="M9Y-8C-FIy" secondAttribute="leading" id="W1C-gl-jOI" userLabel="Image Picker View.leading = Safe Area.leading"/>
+                            <constraint firstItem="M9Y-8C-FIy" firstAttribute="trailing" secondItem="kWH-Jg-L2A" secondAttribute="trailing" id="a4J-H7-5Zw"/>
+                            <constraint firstItem="FZG-NU-2N2" firstAttribute="leading" secondItem="d8X-1x-ipk" secondAttribute="leading" id="dHT-DO-L0J"/>
+                            <constraint firstItem="xci-a1-bFk" firstAttribute="leading" secondItem="M9Y-8C-FIy" secondAttribute="leading" id="h7s-Ol-soy"/>
+                            <constraint firstItem="ewK-49-kmd" firstAttribute="top" secondItem="kWH-Jg-L2A" secondAttribute="bottom" constant="15" id="kK0-pn-njh"/>
+                            <constraint firstItem="xci-a1-bFk" firstAttribute="top" secondItem="FZG-NU-2N2" secondAttribute="bottom" constant="21" id="ncc-Xr-IRa"/>
+                            <constraint firstItem="kWH-Jg-L2A" firstAttribute="leading" secondItem="M9Y-8C-FIy" secondAttribute="leading" id="odz-Uf-IxC"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomText" destination="FAP-qE-7B2" id="yM1-4A-2We"/>
-                        <outlet property="cameraButton" destination="DYq-w9-2Qq" id="YBI-pb-8SR"/>
-                        <outlet property="cancelButton" destination="yhp-7h-mKF" id="uEG-0j-9Wz"/>
-                        <outlet property="navBar" destination="fkz-7n-L2e" id="uw9-jd-Jq3"/>
-                        <outlet property="pickImage" destination="Lj3-81-UUr" id="5Vb-Eh-apW"/>
-                        <outlet property="shareButton" destination="RK0-m3-74b" id="efd-SB-rAy"/>
-                        <outlet property="toolBar" destination="zPV-Vl-4rT" id="d13-27-q3J"/>
-                        <outlet property="topText" destination="ka3-qA-az4" id="FiL-eT-ob8"/>
+                        <outlet property="bottomText" destination="kWH-Jg-L2A" id="kUI-Vv-Jzu"/>
+                        <outlet property="cameraButton" destination="Em8-aa-bzh" id="jgt-Fh-Z2L"/>
+                        <outlet property="cancelButton" destination="xTY-YL-j3p" id="grr-ab-6xG"/>
+                        <outlet property="navBar" destination="ewK-49-kmd" id="now-e0-aL0"/>
+                        <outlet property="pickImage" destination="d8X-1x-ipk" id="kat-kD-eU3"/>
+                        <outlet property="shareButton" destination="Rya-Da-yVT" id="yCe-CF-y3N"/>
+                        <outlet property="toolBar" destination="FZG-NU-2N2" id="mbf-mI-uHy"/>
+                        <outlet property="topText" destination="xci-a1-bFk" id="CyL-TM-1eR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
