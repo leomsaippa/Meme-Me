@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+
 
     
     @IBOutlet weak var topText: UITextField!
@@ -35,6 +37,48 @@ class ViewController: UIViewController {
   
     }
 
+    
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available")
+            imagePicker.sourceType = .camera
+
+        } else {
+            print("Camera isn`t available")
+            imagePicker.sourceType = .photoLibrary
+
+        }
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        print("imagePickerController")
+
+        let imageUrl = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        pickImage.image = imageUrl
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("imagePickerControllerDidCancel")
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
 

@@ -59,9 +59,17 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="flexibleSpace" id="th6-9C-IL9"/>
-                                    <barButtonItem systemItem="camera" id="DYq-w9-2Qq"/>
+                                    <barButtonItem systemItem="camera" id="DYq-w9-2Qq">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="lk3-4B-dbc"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="laV-rW-g4n"/>
-                                    <barButtonItem title="Album" id="o6G-gY-YtQ"/>
+                                    <barButtonItem title="Album" id="o6G-gY-YtQ">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="d7X-Ml-a4B"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="hbg-jF-oLF"/>
                                 </items>
                             </toolbar>
