@@ -65,29 +65,11 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
 
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            print("Camera is available")
-            imagePicker.sourceType = .camera
-
-        } else {
-            print("Camera isn`t available")
-            imagePicker.sourceType = .photoLibrary
-
-        }
-        present(imagePicker, animated: true, completion: nil)
-        
+        presentImagePickerWith(sourceType: .camera)
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        presentImagePickerWith(sourceType: .photoLibrary)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -99,6 +81,22 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
         shareButton.isEnabled = true
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    func presentImagePickerWith(sourceType: UIImagePickerController.SourceType) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+
+        if(sourceType == .camera && UIImagePickerController.isSourceTypeAvailable(.camera)){
+            print("Camera is available")
+            imagePicker.sourceType = .camera
+
+        }
+        present(imagePicker, animated: true, completion: nil)
+
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -114,10 +112,9 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
     }
 
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+        NotificationCenter.default.removeObserver(self)
+        
+        }
     
     
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -178,8 +175,7 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
     func generateMemedImage() -> UIImage {
 
         // Hide toolbar and navbar
-        self.toolBar.isHidden = true
-        self.navBar.isHidden = true
+        isToHideTopAndBottomBars(_hide: true)
 
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -188,12 +184,16 @@ UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextFieldDel
         UIGraphicsEndImageContext()
 
         // Show toolbar and navbar
-        self.toolBar.isHidden = false
-        self.navBar.isHidden = false
+        isToHideTopAndBottomBars(_hide: false)
 
         return memedImage
     }
-        
+    
+    func isToHideTopAndBottomBars(_hide : Bool){
+        self.toolBar.isHidden = _hide
+        self.navBar.isHidden = _hide
+
+    }
     func save(memedImage: UIImage) {
         
         // Create the meme
