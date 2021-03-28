@@ -47,16 +47,18 @@ class MemeTableViewController: UITableViewController {
         }
     }
     
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//          self.performSegue(withIdentifier: "segueTableVCtoDetailVC", sender: self)
+//    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          self.performSegue(withIdentifier: "segueTableVCtoDetailVC", sender: self)
+        
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+    
+        let indexPath = self.tableView.indexPathForSelectedRow
+        detailController.currentMeme = self.memes[indexPath!.row]
+    
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
-    // Prepare for Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segueTableVCtoDetailVC") {
-            let destVC: MemeDetailViewController = segue.destination as! MemeDetailViewController
-            let indexPath = self.tableView.indexPathForSelectedRow
-            destVC.currentMeme = self.memes[indexPath!.row]
-        }
-    }
 }

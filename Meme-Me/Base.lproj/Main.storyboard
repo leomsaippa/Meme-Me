@@ -196,7 +196,7 @@
         <!--Sent Memes Collections-->
         <scene sceneID="MkP-ee-LSv">
             <objects>
-                <viewController title="Sent Memes Collections" id="cuS-9w-mqg" customClass="MemeCollectionViewController" customModule="MeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sent Memes Collections" id="cuS-9w-mqg" customClass="MemeCollectionViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="izf-RF-gGT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -208,7 +208,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="MemeCollectionViewCell" id="r87-9Q-xrz" customClass="MemeCollectionViewCell" customModule="MeMe" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="MemeCollectionViewCell" id="r87-9Q-xrz" customClass="MemeCollectionViewCell" customModule="Meme_Me" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SAE-Ja-Z9Y">
@@ -262,7 +262,7 @@
                     <connections>
                         <outlet property="flowLayout" destination="3op-rV-3rE" id="GWY-p3-Yx1"/>
                         <outlet property="memeCollectionView" destination="izf-RF-gGT" id="esh-1i-3aX"/>
-                        <segue destination="eR7-Ip-Niu" kind="show" id="5ax-6m-yIk"/>
+                        <segue destination="eR7-Ip-Niu" kind="show" identifier="memeCollectionVCtoDetailVC" id="5ax-6m-yIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFw-aA-tSl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -272,7 +272,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="ohf-E4-jed">
             <objects>
-                <viewController id="eR7-Ip-Niu" customClass="MemeDetailViewController" customModule="MeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" id="eR7-Ip-Niu" customClass="MemeDetailViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PkX-R4-6FU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

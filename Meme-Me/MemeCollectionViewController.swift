@@ -55,16 +55,16 @@ class MemeCollectionViewController: UICollectionViewController, UITextFieldDeleg
      }
     
        override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//              self.performSegue(withIdentifier: "segueCollectionVCtoDetailVC", sender: self)
+              self.performSegue(withIdentifier: "memeCollectionVCtoDetailVC", sender: self)
           }
 
     // Prepare for Segue from selected Item
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if (segue.identifier == "segueCollectionVCtoDetailVC") {
-//               let destVC: MemeDetailViewController = segue.destination as! MemeDetailViewController
-//            let indexPath = self.memeCollectionView.indexPathsForSelectedItems?.first
-//               destVC.currentMeme = self.memes[indexPath!.row]
-//           }
+            if (segue.identifier == "memeCollectionVCtoDetailVC") {
+               let destVC: MemeDetailViewController = segue.destination as! MemeDetailViewController
+            let indexPath = self.memeCollectionView.indexPathsForSelectedItems?.first
+               destVC.currentMeme = self.memes[indexPath!.row]
+           }
         }
 
 
