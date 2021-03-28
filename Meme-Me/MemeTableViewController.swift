@@ -10,7 +10,7 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
         
-    let memeCellID = "MemesTableCell"
+    let memeCellID = "MemesTableViewCell"
     
     var memes: [Meme]! {
         let object =  UIApplication.shared.delegate
@@ -51,12 +51,12 @@ class MemeTableViewController: UITableViewController {
           self.performSegue(withIdentifier: "segueTableVCtoDetailVC", sender: self)
     }
     
-//    // Prepare for Segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "segueTableVCtoDetailVC") {
-//            let destVC: MemeDetailViewController = segue.destination as! MemeDetailViewController
-//            let indexPath = self.tableView.indexPathForSelectedRow
-//            destVC.currentMeme = self.memes[indexPath!.row]
-//        }
-//    }
+    // Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueTableVCtoDetailVC") {
+            let destVC: MemeDetailViewController = segue.destination as! MemeDetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            destVC.currentMeme = self.memes[indexPath!.row]
+        }
+    }
 }
