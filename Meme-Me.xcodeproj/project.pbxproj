@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A366CC28261002F300F8769E /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366CC27261002F300F8769E /* MemeTableViewController.swift */; };
 		A3F1C10625CF21D300250147 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1C10525CF21D300250147 /* AppDelegate.swift */; };
 		A3F1C10825CF21D300250147 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1C10725CF21D300250147 /* SceneDelegate.swift */; };
 		A3F1C10A25CF21D300250147 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1C10925CF21D300250147 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A366CC27261002F300F8769E /* MemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 		A3F1C10225CF21D300250147 /* Meme-Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme-Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F1C10525CF21D300250147 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3F1C10725CF21D300250147 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				A3F1C11025CF21D400250147 /* LaunchScreen.storyboard */,
 				A3F1C11325CF21D400250147 /* Info.plist */,
 				A3F1C11A25CF2BC100250147 /* Meme.swift */,
+				A366CC27261002F300F8769E /* MemeTableViewController.swift */,
 			);
 			path = "Meme-Me";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				A3F1C10A25CF21D300250147 /* ViewController.swift in Sources */,
 				A3F1C11B25CF2BC100250147 /* Meme.swift in Sources */,
 				A3F1C10625CF21D300250147 /* AppDelegate.swift in Sources */,
+				A366CC28261002F300F8769E /* MemeTableViewController.swift in Sources */,
 				A3F1C10825CF21D300250147 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
