@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Meme Tab Bar View Controller-->
         <scene sceneID="GtL-zc-bYu">
             <objects>
-                <tabBarController id="3ta-8I-qFi" sceneMemberID="viewController">
+                <tabBarController id="3ta-8I-qFi" customClass="MemeTabBarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KqY-ax-Zra">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1461" y="3"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="UHv-Px-6RG">
             <objects>
                 <tableViewController id="qVT-V8-cZU" sceneMemberID="viewController">
@@ -50,7 +50,13 @@
                             <outlet property="delegate" destination="qVT-V8-cZU" id="rBA-WI-5DL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="XO8-gY-Q2S"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="Pce-0n-QQu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="e4a-BK-heQ" userLabel="Add">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="coT-tj-UOg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edf-xy-EYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="-650" y="310"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="14x-4c-nqv">
             <objects>
                 <collectionViewController id="5tA-zF-YqT" sceneMemberID="viewController">
@@ -119,7 +125,9 @@
                             <outlet property="delegate" destination="5tA-zF-YqT" id="AnU-OJ-68e"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="IQC-7N-Cd3"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="aCm-JI-9zV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hX1-c3-EoX" userLabel="Add"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c37-Vh-Gkn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,20 +142,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-1x-ipk" userLabel="Pick Image">
-                                <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="720"/>
                             </imageView>
                             <textField contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xci-a1-bFk" userLabel="Top Text">
-                                <rect key="frame" x="0.0" y="109" width="414" height="16"/>
+                                <rect key="frame" x="0.0" y="153" width="414" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kWH-Jg-L2A" userLabel="Bottom Text">
-                                <rect key="frame" x="0.0" y="788" width="414" height="15"/>
+                                <rect key="frame" x="0.0" y="739" width="414" height="15"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZG-NU-2N2" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="Rya-Da-yVT" userLabel="shareButton">
                                         <connections>
@@ -163,7 +171,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-49-kmd" userLabel="Bottom Toolbar">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bzT-60-HIu"/>
                                 </constraints>
@@ -206,6 +214,7 @@
                             <constraint firstItem="kWH-Jg-L2A" firstAttribute="leading" secondItem="M9Y-8C-FIy" secondAttribute="leading" id="odz-Uf-IxC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NVb-Ze-bzk"/>
                     <connections>
                         <outlet property="bottomText" destination="kWH-Jg-L2A" id="kUI-Vv-Jzu"/>
                         <outlet property="cameraButton" destination="Em8-aa-bzh" id="jgt-Fh-Z2L"/>
